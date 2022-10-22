@@ -1,0 +1,310 @@
+@import "reset.css";
+/* =================шрифти===================== */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+
+@font-face {
+	font-family: "Inter";
+	src: url("../fonts/Inter/Inter-Regular.woff2") format("woff2"), url("../fonts/Inter-Regular.woff") format("woff");
+	font-display: swap;
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Inter";
+	src: url("../fonts/Inter/Inter-Medium.woff2") format("woff2"), url("../fonts/Inter-Medium.woff") format("woff");
+	font-display: swap;
+	font-weight: 500;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Inter";
+	src: url("../fonts/Inter/Inter-Black.woff2") format("woff2"), url("../fonts/Inter-Black.woff") format("woff");
+	font-display: swap;
+	font-weight: 900;
+	font-style: normal;
+}
+body{font-family: "Lato";
+	font-style: normal;
+	font-size: 18px;
+}
+.wrapper{
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	min-height: 100%;
+	
+}
+.page {
+	padding-top: 20px;
+}
+/* ========================стилі transition======================= */
+picture {
+	width: 100%;
+}
+.transition {
+	max-width: 1200px;
+	margin: 0 auto;
+	background-color: rgba(128, 128, 128, 0.658);
+}
+.transition__first-block {
+	width: 1000px;
+	height: 600px;
+	margin: 0 auto;
+	position: relative;
+	/* background: url(../img/logo.png) center no-repeat; */
+	margin-bottom: 50px;
+}
+.transition__first-block::after{
+	content: "";
+	background-image: url(../img/logo.png);
+	/* background-position: center center; */
+	position: absolute;
+	width: 250px;
+	height: 253px;
+	top: 173px;
+	left: 375px;
+	animation-name: logo;
+	animation-duration: 7s;
+	animation-timing-function: linear;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+}
+@keyframes logo {
+	0%{
+		transform: scale(1);
+	}
+	50%{
+		transform: scale(1.2);
+	}
+	100%{
+		transform: scale(1.4);
+	}
+}
+.transition__famous,
+.transition__happy,
+.transition__sad,
+.transition__start{
+	max-width: 300px;
+}
+.transition__famous {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.transition__picture {}
+.transition__happy {
+	position: absolute;
+	top: 0;
+	left: 700px;
+}
+.transition__sad {
+	position: absolute;
+	top: 400px;
+	left: 0;
+}
+.transition__start {
+	position: absolute;
+	top: 400px;
+	left: 700px;
+}
+.transition__button{
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background-color: red;
+	color: aquamarine;
+	padding: 40px 18px;
+	animation-name: transition-button;
+	animation-duration: 2s;
+	animation-timing-function: linear;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+}
+@keyframes transition-button {
+	0% {
+		transform: scale(1);
+	}
+
+	100% {
+		transform: scale(1.2);
+	}
+}
+.transition__button--twoo{
+	animation-name: transition-button-twoo;
+	animation-delay: 2s;
+	animation-duration: 3s;
+	animation-timing-function: ease;
+	animation-iteration-count: 5;
+}
+@keyframes transition-button-twoo {
+	0% {
+		transform: rotate(360deg);
+	}
+
+}
+.transition__button--three {
+	animation-name: transition-button-three;
+	animation-delay: 4s;
+	animation-duration: 1.5s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: 7;
+}
+@keyframes transition-button-three {
+	0% {
+		transform: translate(0,0);
+	}
+
+	100% {
+		transform: translate(10px, 0px);
+	}
+}
+.transition__button--four {
+	animation-name: transition-button-four;
+	animation-delay: 6s;
+	animation-duration: 1s;
+	animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	animation-iteration-count: 10;
+}
+@keyframes transition-button-four {
+	0% {
+		transform: translate(0, 0);
+	}
+
+	100% {
+		transform: translate(-10px, 0px);
+	}
+}
+.transition__button:hover{
+	animation-play-state: paused;
+}
+
+.transition__list{
+max-width: 500px;
+margin: 0 auto;
+padding: 20px 0;
+}
+.transition__list li{
+	max-width: 100px;
+	display: inline-block;
+}
+.transition__list li:not(:last-child){
+	margin-right: 20px;
+}
+.transition__famous:target{
+	transform: translate(200px,100px);
+	transition: all 1s ease 0s;
+}
+.transition__happy:target {
+	transform: translate(-200px, 100px) rotate(360deg);
+	transition: transform 4s linear 2s;
+}
+.transition__sad:target {
+	transform: translate(200px, -100px) scale(1.5);
+	transition: all 2s ease-out 0s;
+}
+.transition__start:target {
+	transform: translate(-200px, -100px) skew(60deg);
+	transition: transform 6s linear 3s;
+}
+/* ===============================стилі square================================ */
+.square__section {
+	background-color: limegreen;
+	width: 1200px;
+	height: 200px;
+	margin: 0 auto;
+	padding: 50px;
+	position: relative;
+	overflow: hidden;
+}
+.square__element {
+	width: 100px;
+	height: 100px;
+	background-color: blue;
+	position: absolute;
+	left: -100px;
+	opacity: 0.5;
+}
+.square__section:hover .square__element{
+	transform: translate(200px,0px);
+	transition: all 3s linear 1s;
+	opacity: 1;
+	background-color: yellow;
+}
+.square__link{
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background-color: red;
+	padding: 40px 13px;
+	position: absolute;
+	left: 400px;
+	font-family: "Inter";
+	font-weight: 900;
+	font-size: 20px;
+}
+/* ===============================стилі block================================ */
+.block {
+	background-color: aqua;
+	width: 1200px;
+	margin: 0 auto;
+	padding: 50px;
+}
+.block__titlle {
+	font-family: "Raleway";
+	font-weight: 900;
+	font-size: 25px;
+	color: purple;
+	width: 200px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	animation-name: block-titlle;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-direction: alternate;
+}
+@keyframes block-titlle {
+	0%{
+		opacity: 0;
+	}
+	50%{
+		opacity: 0.5;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+.block__text {
+	font-weight: 700;
+	font-size: 21px;
+	line-height: 1.3;
+	border: 2px solid black;
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 5px;
+	background-color: saddlebrown;
+	color: aqua;
+	border-radius: 10px;
+	box-shadow: 7px 5px 10px 3px green;
+	animation-name: block-text;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-direction: alternate;
+	animation-delay: 5s;
+}
+@keyframes block-text {
+	0% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 0.5;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
